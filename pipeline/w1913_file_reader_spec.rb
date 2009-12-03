@@ -4,18 +4,32 @@ require 'thread'
 
 describe W1913FileReader do
   
+  before(:each) do
+    @eos = '***EOS'
+    @queue = Queue.new
+  end
+  
   it "should put EOS on the queue when there are no files" do
-    eos = '***EOS'
-    queue = Queue.new
+    reader = W1913FileReader.new(@queue, @eos, 99)
+    run_reader(reader, [])
+    @queue.pop.should eql @eos
+  end
+
+  it "should copy a file shorter than the buffer length into the output queue, terminating with EOS" do
+    contents = "Short string"
+    infile = StringIO.new(contents, "r")
+    reader = W1913FileReader.new(@queue, @eos, 99)
+    run_reader(reader,[infile])
+    @queue.pop.should eql "#{contents}#{@eos}"
+  end
+  
+  private
+  def run_reader(reader, files) 
     popped = nil
-    reader = W1913FileReader.new(queue, eos)
     producer = Thread.new do
-      reader.read
+      reader.read(files)
     end
-    consumer = Thread.new do
-      popped = queue.pop
-    end
-    popped.should eql eos
+    producer.join
   end
   
 end
