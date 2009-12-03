@@ -1,0 +1,14 @@
+[DEBUG] 2009-11-30 11:28:33 :: got X
+[DEBUG] 2009-11-30 11:28:33 :: Element: i => ""
+[DEBUG] 2009-11-30 11:28:33 :: got Y
+[DEBUG] 2009-11-30 11:28:33 :: Element: i => ""
+[DEBUG] 2009-11-30 11:28:33 :: got Z
+[DEBUG] 2009-11-30 11:28:33 :: Element: i => ""
+[DEBUG] 2009-11-30 11:28:33 :: got <
+[DEBUG] 2009-11-30 11:28:33 :: got /
+[DEBUG] 2009-11-30 11:28:33 :: Element: i => "", end_tag_candidate => "/"
+[DEBUG] 2009-11-30 11:28:33 :: got i
+[DEBUG] 2009-11-30 11:28:33 :: Element: i => "", end_tag_candidate => "/i"
+[DEBUG] 2009-11-30 11:28:33 :: got >
+[DEBUG] 2009-11-30 11:28:33 :: expected end tag "/i", got "/i"
+[DEBUG] 2009-11-30 11:28:33 :: ***Element completed: Element: i => "XYZ"

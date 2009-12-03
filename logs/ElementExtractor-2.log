@@ -1,0 +1,42 @@
+[DEBUG] 2009-11-30 11:28:33 :: <: in_tag: false, curr_tag: 
+[DEBUG] 2009-11-30 11:28:33 :: t: in_tag: true, curr_tag: 
+[DEBUG] 2009-11-30 11:28:33 :: a: in_tag: true, curr_tag: t
+[DEBUG] 2009-11-30 11:28:33 :: g: in_tag: true, curr_tag: ta
+[DEBUG] 2009-11-30 11:28:33 :: >: in_tag: true, curr_tag: tag
+[DEBUG] 2009-11-30 11:28:33 :: New element started for tag: tag
+[DEBUG] 2009-11-30 11:28:33 :: in_tag set to false
+[DEBUG] 2009-11-30 11:28:33 :: A: in_tag: false, curr_tag: 
+[DEBUG] 2009-11-30 11:28:33 :: <: in_tag: false, curr_tag: 
+[DEBUG] 2009-11-30 11:28:33 :: /: in_tag: true, curr_tag: 
+[DEBUG] 2009-11-30 11:28:33 :: t: in_tag: true, curr_tag: /
+[DEBUG] 2009-11-30 11:28:33 :: a: in_tag: true, curr_tag: /t
+[DEBUG] 2009-11-30 11:28:33 :: g: in_tag: true, curr_tag: /ta
+[DEBUG] 2009-11-30 11:28:33 :: >: in_tag: true, curr_tag: /tag
+[DEBUG] 2009-11-30 11:28:33 :: in_tag set to false
+[DEBUG] 2009-11-30 11:28:33 ::  : in_tag: false, curr_tag: 
+[DEBUG] 2009-11-30 11:28:33 :: a: in_tag: false, curr_tag: 
+[DEBUG] 2009-11-30 11:28:33 :: element popped: tag => A
+
+[DEBUG] 2009-11-30 11:28:33 :: s: in_tag: false, curr_tag: 
+[DEBUG] 2009-11-30 11:28:33 :: d: in_tag: false, curr_tag: 
+[DEBUG] 2009-11-30 11:28:33 :: a: in_tag: false, curr_tag: 
+[DEBUG] 2009-11-30 11:28:33 :: s: in_tag: false, curr_tag: 
+[DEBUG] 2009-11-30 11:28:33 :: f: in_tag: false, curr_tag: 
+[DEBUG] 2009-11-30 11:28:33 ::  : in_tag: false, curr_tag: 
+[DEBUG] 2009-11-30 11:28:33 :: <: in_tag: false, curr_tag: 
+[DEBUG] 2009-11-30 11:28:33 :: t: in_tag: true, curr_tag: 
+[DEBUG] 2009-11-30 11:28:33 :: a: in_tag: true, curr_tag: t
+[DEBUG] 2009-11-30 11:28:33 :: g: in_tag: true, curr_tag: ta
+[DEBUG] 2009-11-30 11:28:33 :: >: in_tag: true, curr_tag: tag
+[DEBUG] 2009-11-30 11:28:33 :: New element started for tag: tag
+[DEBUG] 2009-11-30 11:28:33 :: in_tag set to false
+[DEBUG] 2009-11-30 11:28:33 :: B: in_tag: false, curr_tag: 
+[DEBUG] 2009-11-30 11:28:33 :: <: in_tag: false, curr_tag: 
+[DEBUG] 2009-11-30 11:28:33 :: /: in_tag: true, curr_tag: 
+[DEBUG] 2009-11-30 11:28:33 :: t: in_tag: true, curr_tag: /
+[DEBUG] 2009-11-30 11:28:33 :: a: in_tag: true, curr_tag: /t
+[DEBUG] 2009-11-30 11:28:33 :: g: in_tag: true, curr_tag: /ta
+[DEBUG] 2009-11-30 11:28:33 :: >: in_tag: true, curr_tag: /tag
+[DEBUG] 2009-11-30 11:28:33 :: in_tag set to false
+[DEBUG] 2009-11-30 11:28:33 :: element popped: tag => B
+
