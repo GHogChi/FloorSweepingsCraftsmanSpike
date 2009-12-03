@@ -31,7 +31,22 @@ describe W1913FileReader do
     reader = W1913FileReader.new(@queue, EOS, strings[0].size)
     run_reader(reader,[infile])
     
+    strings.size.times {|i| @queue.pop.should eql strings[i]}
+    @queue.pop.should eql EOS
+  end
+  
+  it "should queue up contents of multiple files in order" do
+    strings = []
+    10.times {|i| strings << "string#{i}"}
+    files = []
+    strings.each {|str| files << StringIO.new(str, "r")}
+#    10.times {|i| files << StringIO.new("string#{i}","r")}
+    
+    reader = W1913FileReader.new(@queue, EOS, "string".size + 1)
+    run_reader(reader,files)
     10.times {|i| @queue.pop.should eql strings[i]}
+    # Why does the following cause a "gets is a private method" error?
+#    10.times {|i| @queue.pop.should eql files[i].rewind.gets}
     @queue.pop.should eql EOS
   end
   
