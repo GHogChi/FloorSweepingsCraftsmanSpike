@@ -52,7 +52,6 @@ describe W1913FileReader do
   
   private
   def run_reader(reader, files) 
-    popped = nil
     producer = Thread.new do
       reader.read(files)
     end
