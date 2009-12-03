@@ -3,10 +3,7 @@ require 'lib/constituent'
 class ConstituentExtractor
   
   attr_writer = :start_matcher, :end_matcher
-#  def initialize(start_matcher, end_matcher)
   def initialize(start_pattern, end_pattern, eos_pattern)
-#    @start_matcher = start_matcher
-#    @end_matcher = end_matcher
     @start_matcher = Proc.new do
       |str| 
       m = str.match /(#{start_pattern})/
@@ -38,9 +35,8 @@ class ConstituentExtractor
       tail = str[start.end(1)..-1]
       end_match = @end_matcher.call(tail)
       if end_match
-        print "end_match captures: #{end_match.captures.size}<br>"
-        end_match.captures.size.times {|i| puts "match[i]: '#{end_match.captures[i]}'<br>"}
         starting_offset = start.begin(1)
+        # (smelly that this needs a comment) following line handles the normal and EOS cases:
         end_match_index = end_match.captures[0] ? end_match.begin(1) : end_match.begin(2)
         ending_offset = start.end(1) + end_match_index
         contents = str[starting_offset...ending_offset]
