@@ -7,12 +7,17 @@ class W1913FileReader
   end
   
   def read(files)
-    buf = ''
-    files.each do |f| 
-      buf << f.readline
+    outbuf = ''
+    inbuf = ''
+    files.each do |f|
+      inbuf << f.readline
+      while inbuf.size > @buffer_size do
+        @queue << inbuf.slice!(0...@buffer_size)
+      end      
     end
-    buf << @eos
-    @queue << buf
+    inbuf << @eos
+    @queue << inbuf.slice!(0...@buffer_size) if inbuf.size > @buffer_size
+    @queue << inbuf if inbuf.size > 0
   end
   
 end
