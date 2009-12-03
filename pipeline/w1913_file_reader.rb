@@ -7,7 +7,12 @@ class W1913FileReader
   end
   
   def read(files)
-    @queue << @eos
+    buf = ''
+    files.each do |f| 
+      buf << f.readline
+    end
+    buf << @eos
+    @queue << buf
   end
   
 end
