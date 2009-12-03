@@ -23,6 +23,19 @@ describe W1913FileReader do
     @queue.pop.should eql "#{contents}#{EOS}"
   end
   
+  it "should break a file longer than the buffer length into separate buffers" do
+    s1 = 'string1'
+    s2 = 'string2'
+    s3 = 'string3'
+    infile = StringIO.new("#{s1}#{s2}#{s3}", "r")
+    reader = W1913FileReader.new(@queue, EOS, s1.size)
+    run_reader(reader,[infile])
+    @queue.pop.should eql s1
+    @queue.pop.should eql s2
+    @queue.pop.should eql s3
+    @queue.pop.should eql EOS
+  end
+  
   private
   def run_reader(reader, files) 
     popped = nil
