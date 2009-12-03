@@ -3,24 +3,24 @@ require 'pipeline/w1913_file_reader'
 require 'thread'
 
 describe W1913FileReader do
+  EOS = '***EOS'
   
   before(:each) do
-    @eos = '***EOS'
     @queue = Queue.new
   end
   
   it "should put EOS on the queue when there are no files" do
-    reader = W1913FileReader.new(@queue, @eos, 99)
+    reader = W1913FileReader.new(@queue, EOS, 99)
     run_reader(reader, [])
-    @queue.pop.should eql @eos
+    @queue.pop.should eql EOS
   end
 
   it "should copy a file shorter than the buffer length into the output queue, terminating with EOS" do
     contents = "Short string"
     infile = StringIO.new(contents, "r")
-    reader = W1913FileReader.new(@queue, @eos, 99)
+    reader = W1913FileReader.new(@queue, EOS, 99)
     run_reader(reader,[infile])
-    @queue.pop.should eql "#{contents}#{@eos}"
+    @queue.pop.should eql "#{contents}#{EOS}"
   end
   
   private
