@@ -1,7 +1,7 @@
 require 'pipeline/w1913_entry_extractor'
 
 describe W1913EntryExtractor do
-  EOS = '***EOS'
+  EOS = '===EOS==='
   
   before(:each) do
     @inqueue = Queue.new
@@ -9,13 +9,14 @@ describe W1913EntryExtractor do
   end
   
   it "should put EOS on queue when no entries in input" do
-    extractor = W1913EntryExtractor.new('','', EOS)
+    extractor = W1913EntryExtractor.new('xyz','def', EOS)
+    @inqueue << EOS
     run_extractor(extractor)
     @outqueue.pop.should eql EOS
   end
   
   it "should put one matched entry on the queue" do
-    entry = "<hw>A</hw>x"
+    entry ='<hw>A</hw>x'
     input = "#{entry}#{EOS}"
     @inqueue << input
     pattern = '\<hw\>.*?\<\/hw\>'
@@ -32,5 +33,6 @@ describe W1913EntryExtractor do
       extractor.extract(@inqueue, @outqueue)
     end
     t.join    
+    puts "t joined<br>"
   end
 end
